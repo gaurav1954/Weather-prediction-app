@@ -51,14 +51,9 @@ app.post("/main", async (req, res) => {
         const key = 'XGGTZ3FYHMN5FDFFFF7CFF5JK';
         let endpoint = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/${formattedCurrentDate}?key=${key}&unitGroup=metric&elements=tempmax,tempmin,temp,sunrise,sunset,conditions,visibility,uvindex,pressure,feelslike,humidity`;
 
-        //https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Dehradun/2024-01-04?key=XGGTZ3FYHMN5FDFFFF7CFF5JK
         let resp1 = await axios.get(endpoint);
         const r = resp1.data;
         console.log(r)
-        endpoint = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/${t}?key=${key}&unitGroup=metric`
-        resp1 = await axios.get(endpoint);
-        const r2 = resp1.data;
-        // console.log(r2);
         res.render("main", { r })
     } catch (error) {
         console.error('Error fetching data from VisualCrossing:', error.message);
