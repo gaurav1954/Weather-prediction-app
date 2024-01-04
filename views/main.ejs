@@ -11,17 +11,16 @@
 
 <body>
     <div class="search">
-        <form action="/main" method="POST">
+        <form action="/main" method="POST" id="searchForm">
             <div class="form-group">
-                <label for="city" class="el">Location</label>
                 <input type="text" class="form-control el" id="city" name="city" placeholder="Enter City">
-                <button type="submit" class="btn btn-primary el">Submit</button>
+                <img src="search.png" alt="" class="iconn" onclick="submitForm()">
             </div>
         </form>
     </div>
 
     <header>
-        <div class="upper">
+        <div class="upperr">
             <p class="city">
                 <%=r.address%>
             </p>
@@ -86,7 +85,11 @@
     <footer>
 
     </footer>
-
+    <script>
+        function submitForm() {
+            document.getElementById('searchForm').submit();
+        }
+    </script>
 </body>
 
 </html>
