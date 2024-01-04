@@ -49,11 +49,11 @@ app.post("/main", async (req, res) => {
         const currentDate = new Date();
         const formattedCurrentDate = formatDate(currentDate);
         const key = 'XGGTZ3FYHMN5FDFFFF7CFF5JK';
-        let endpoint = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/${formattedCurrentDate}?key=${key}&unitGroup=metric&elements=tempmax,tempmin,temp,sunrise,sunset,conditions,visibility,uvindex,pressure,feelslike,humidity`;
+        let endpoint = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/${formattedCurrentDate}?key=${key}&unitGroup=metric&elements=tempmax,tempmin,temp,sunrise,sunset,conditions,visibility,uvindex,pressure,feelslike,humidity,datetime,icon`;
 
         let resp1 = await axios.get(endpoint);
         const r = resp1.data;
-        console.log(r)
+        console.log(r.days[0].hours)
         res.render("main", { r })
     } catch (error) {
         console.error('Error fetching data from VisualCrossing:', error.message);

@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
+    <title>Weather page</title>
     <link rel="stylesheet" href="/css/main.css">
+
 </head>
 
 <body>
@@ -30,6 +31,30 @@
             </div>
         </div>
     </header>
+    <section>
+        <div class="heading">Today's weather</div>
+        <div class="content">
+            <% for (i of r.days[0].hours) { %>
+                <div class="hour">
+                    <div class="elements">
+                        <%= i.datetime %>
+                    </div>
+                    <div class="elements"></div>
+                    <div class="elements">
+                        <%= i.temp %>&deg;
+                    </div>
+                </div>
+                <% } %>
+        </div>
+    </section>
+
+
+    <main>
+
+    </main>
+    <footer>
+
+    </footer>
 
 </body>
 
