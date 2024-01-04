@@ -37,6 +37,7 @@ function getCurrentDateTimeFormatted() {
     return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
 }
 const t = getCurrentDateTimeFormatted()
+console.log(t);
 app.get("/", (req, res) => {
     res.render('home');
 });
@@ -48,13 +49,13 @@ app.post("/main", async (req, res) => {
         const currentDate = new Date();
         const formattedCurrentDate = formatDate(currentDate);
         const key = 'XGGTZ3FYHMN5FDFFFF7CFF5JK';
-        let endpoint = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/${formattedCurrentDate}?key=${key}&unitGroup=metric&elements=tempmax,tempmin,temp,sunrise,sunset,conditions`;
+        let endpoint = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/${formattedCurrentDate}?key=${key}&unitGroup=metric&elements=tempmax,tempmin,temp,sunrise,sunset,conditions,visibility,uvindex,pressure,feelslike,humidity`;
 
-        //
+        //https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Dehradun/2024-01-04?key=XGGTZ3FYHMN5FDFFFF7CFF5JK
         let resp1 = await axios.get(endpoint);
         const r = resp1.data;
         console.log(r)
-        endpoint = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/${t}?key=YOUR_API_KEY&unitGroup=metric`
+        endpoint = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/${t}?key=${key}&unitGroup=metric`
         resp1 = await axios.get(endpoint);
         const r2 = resp1.data;
         // console.log(r2);
