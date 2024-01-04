@@ -19,7 +19,7 @@ const formatDate = (date) => {
 
     // Clone the date and add 5 days
     const endDate = new Date(date);
-    endDate.setDate(endDate.getDate() + 5);
+    endDate.setDate(endDate.getDate() + 10);
     const endMonth = (endDate.getMonth() + 1).toString().padStart(2, '0');
     const endDay = endDate.getDate().toString().padStart(2, '0');
 
@@ -53,7 +53,7 @@ app.post("/main", async (req, res) => {
 
         let resp1 = await axios.get(endpoint);
         const r = resp1.data;
-        console.log(r.days[0].hours)
+        console.log(r)
         res.render("main", { r })
     } catch (error) {
         console.error('Error fetching data from VisualCrossing:', error.message);

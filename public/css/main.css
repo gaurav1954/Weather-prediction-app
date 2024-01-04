@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body {
@@ -14,8 +15,16 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    padding: 5rem;
+
+    padding: 3rem 15rem;
+}
+
+.day {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem 0.3rem;
+    border-bottom: 1px solid rgb(63, 165, 233);
 }
 
 section {
@@ -24,6 +33,7 @@ section {
     background-color: white;
     padding: 1rem;
     border-radius: 10px;
+    padding-bottom: 0;
 }
 
 .heading {
@@ -31,19 +41,20 @@ section {
 }
 
 .content {
-    margin-top: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
     width: 100%;
+    margin-bottom: 0;
+    padding-bottom: 0;
 
 }
 
 .content::-webkit-scrollbar {
-    width: 1cm;
+    width: 1px;
+    height: 1px;
     /* Set the width of the scrollbar */
 }
 
@@ -59,10 +70,56 @@ header {
     width: 100%;
 }
 
-.hour {}
+main {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    row-gap: 10px;
+    column-gap: 10px;
+    grid-template-rows: repeat(3, 200px);
+
+    width: 100%;
+}
+
+.box1 {
+    grid-column: 1/3;
+    grid-row: 1/3;
+    border: 1px solid black;
+    overflow-y: scroll;
+    scroll-snap-type: x mandatory;
+    padding: 1rem;
+    border-radius: 20px;
+    background-color: white;
+    backdrop-filter: blur(3px);
+}
+
+.box1::-webkit-scrollbar {
+    width: 1px;
+    /* Set the width of the scrollbar */
+}
+
+.box1>* {
+    text-align: left;
+}
 
 .hour>.elements {
     text-align: center;
+}
+
+.elements>img,
+.details>img {
+    height: 30px;
+    width: 30px;
+}
+
+.hour {
+    margin: 0 0.6rem;
+}
+
+.elements {
+    margin: 1.1rem 0.3rem;
+    font-size: 15px;
+    font-weight: 200px;
 }
 
 .city {

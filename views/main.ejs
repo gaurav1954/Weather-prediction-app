@@ -32,14 +32,17 @@
         </div>
     </header>
     <section>
-        <div class="heading">Today's weather</div>
+        <div class="heading">Today's weather: <%=r.currentConditions.conditions%>
+        </div>
         <div class="content">
             <% for (i of r.days[0].hours) { %>
                 <div class="hour">
                     <div class="elements">
-                        <%= i.datetime %>
+                        <%= i.datetime.substring(0, 5) %>
                     </div>
-                    <div class="elements"></div>
+                    <div class="elements">
+                        <img src="/<%= i.icon %>.png" alt="none">
+                    </div>
                     <div class="elements">
                         <%= i.temp %>&deg;
                     </div>
@@ -47,10 +50,28 @@
                 <% } %>
         </div>
     </section>
-
-
     <main>
+        <div class="box1">
+            <div class="day">
+                10 days forecast
+            </div>
+            <% for (i of r.days) { %>
+                <div class="day">
+                    <div class="details">
+                        <%= i.datetime %>
+                    </div>
+                    <div class="details">
+                        L: <%= i.tempmin %>
+                    </div>
+                    <div class="details">
+                        H:<%= i.tempmax %>
+                    </div>
 
+                    <div class="details"><img src="/<%=i.icon%>.png" alt="none"></div>
+                </div>
+                <% } %>
+
+        </div>
     </main>
     <footer>
 
