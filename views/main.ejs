@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <header>
+        <div class="upper">
+            <p class="city">
+                <%=r.address%>
+            </p>
+            <p class="temp">
+                <%=r.currentConditions.temp%>&deg;
+            </p>
+            <p class="condition">
+                <%=r.currentConditions.conditions%>
+            </p>
+            <div class="tms">
+                <p class="tm">
+                    H:<%=r.days[0].tempmax%>&deg;
+                </p>
+                <p class="tm">
+                    L:<%=r.days[0].tempmin%>&deg;
+                </p>
+            </div>
+        </div>
+    </header>
+
+</body>
+
+</html>
