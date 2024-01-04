@@ -10,6 +10,16 @@
 </head>
 
 <body>
+    <div class="search">
+        <form action="/main" method="POST">
+            <div class="form-group">
+                <label for="city" class="el">Location</label>
+                <input type="text" class="form-control el" id="city" name="city" placeholder="Enter City">
+                <button type="submit" class="btn btn-primary el">Submit</button>
+            </div>
+        </form>
+    </div>
+
     <header>
         <div class="upper">
             <p class="city">
@@ -52,7 +62,7 @@
     </section>
     <main>
         <div class="box1">
-            <div class="day">
+            <div class="day head1">
                 10 days forecast
             </div>
             <% for (i of r.days) { %>
@@ -61,10 +71,10 @@
                         <%= i.datetime %>
                     </div>
                     <div class="details">
-                        L: <%= i.tempmin %>
+                        L: <%= i.tempmin %>&deg;
                     </div>
                     <div class="details">
-                        H:<%= i.tempmax %>
+                        H:<%= i.tempmax %>&deg;
                     </div>
 
                     <div class="details"><img src="/<%=i.icon%>.png" alt="none"></div>

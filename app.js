@@ -10,7 +10,13 @@ app.set('view engine', 'ejs');
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({ extended: true })); // Use body-parser middleware for parsing POST request body
-
+const session = require('express-session');
+const { type } = require('os');
+app.use(session({
+    secret: 'thisIsJustDumb',
+    saveUninitialized: false,
+    resave: false   //this is like signing the cookie
+}))
 // Function to format a date as 'YYYY-MM-DD'
 const formatDate = (date) => {
     const year = date.getFullYear();
@@ -36,16 +42,9 @@ function getCurrentDateTimeFormatted() {
 
     return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
 }
-const t = getCurrentDateTimeFormatted()
-console.log(t);
-app.get("/", (req, res) => {
-    res.render('home');
-});
-
-// POST route to handle the form submission
-app.post("/main", async (req, res) => {
+app.get("/", async (req, res) => {
     try {
-        const { city } = req.body; // Retrieve the city from the request body
+        let { city } = req.session || { city: "Dehradun" };
         const currentDate = new Date();
         const formattedCurrentDate = formatDate(currentDate);
         const key = 'XGGTZ3FYHMN5FDFFFF7CFF5JK';
@@ -59,6 +58,11 @@ app.post("/main", async (req, res) => {
         console.error('Error fetching data from VisualCrossing:', error.message);
         res.status(500).send('Internal Server Error');
     }
+});
+app.post("/main", async (req, res) => {
+    const { city } = req.body; // Retrieve the city from the request body
+    req.session.city = city;
+    res.redirect("/");
 });
 
 app.listen(3000, () => {
