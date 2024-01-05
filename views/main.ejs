@@ -41,7 +41,7 @@
         </div>
     </header>
     <section>
-        <div class="heading">Today's weather: <%=r.currentConditions.conditions%>
+        <div class="heading">Today's weather: <%=r.days[0].description%>
         </div>
         <div class="content">
             <% for (i of r.days[0].hours) { %>
@@ -105,6 +105,50 @@
                 <%=r.currentConditions.humidity %> %
             </div>
             <div class="matt">The dew point it <%=r.currentConditions.dew %>&deg; right now % </div>
+        </div>
+        <div class="box5">
+            <div class="head1">
+                <img src="sunrise.png" alt="" class="head-icon"> Sunrise
+            </div>
+            <div class="matter">
+                <img src="sunrise.png" alt="" class="lg-img">
+            </div>
+            <div class="matt">
+                <%=r.currentConditions.sunrise.substring(0, 5) %> AM
+            </div>
+        </div>
+        <div class="box6">
+            <div class="head1">
+                <img src="sunset.png" alt="" class="head-icon"> Sunset
+            </div>
+            <div class="matter">
+                <img src="sunset.png" alt="" class="lg-img">
+            </div>
+            <div class="matt">
+                <%=r.currentConditions.sunset.substring(0, 5) %> PM
+            </div>
+        </div>
+        <div class="box7">
+            <div class="head1">
+                <img src="feels_like.png" alt="" class="head-icon"> Feels like
+            </div>
+            <div class="matter">
+                <img src="feels_like.png" alt="" class="lg-img">
+            </div>
+            <div class="matt">
+                <%=r.currentConditions.feelslike %> &deg;
+            </div>
+        </div>
+        <div class="box8">
+            <div class="head1">
+                <img src="pressure.png" alt="" class="head-icon">Pressure
+            </div>
+            <div class="matter">
+                <img src="pressure.png" alt="" class="lg-img">
+            </div>
+            <div class="matt">
+                <%=r.currentConditions.pressure %> Pa
+            </div>
         </div>
     </main>
     <script>
