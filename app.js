@@ -68,7 +68,7 @@ app.get("/", async (req, res) => {
         const key = 'XGGTZ3FYHMN5FDFFFF7CFF5JK';
 
         // Create the API endpoint for fetching weather data
-        let endpoint = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/${formattedCurrentDate}?key=${key}&unitGroup=metric&elements=tempmax,tempmin,temp,sunrise,sunset,conditions,visibility,uvindex,pressure,feelslike,humidity,datetime,icon`;
+        let endpoint = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/${formattedCurrentDate}?key=${key}&unitGroup=metric&elements=tempmax,tempmin,temp,sunrise,sunset,conditions,visibility,uvindex,pressure,feelslike,humidity,datetime,icon,windspeed,windgust,dew`;
 
         // Make the API request
         let resp1 = await axios.get(endpoint);

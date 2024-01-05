@@ -62,6 +62,7 @@
     <main>
         <div class="box1">
             <div class="day head1">
+                <img src="10day.png" class="head-icon" alt="">
                 10 days forecast
             </div>
             <% for (i of r.days) { %>
@@ -79,12 +80,33 @@
                     <div class="details"><img src="/<%=i.icon%>.png" alt="none"></div>
                 </div>
                 <% } %>
-
+        </div>
+        <div class="box2">
+            <div class="head1">
+                <img src="wind.png" alt="" class="head-icon">Wind speed
+            </div>
+            <div class="matter">
+                <%=r.currentConditions.windspeed %> KPH
+            </div>
+        </div>
+        <div class="box3">
+            <div class="head1">
+                <img src="wind.png" alt="" class="head-icon"> Wind gusts
+            </div>
+            <div class="matter">
+                <%=r.currentConditions.windgust %> KPH
+            </div>
+        </div>
+        <div class="box4">
+            <div class="head1">
+                <img src="Humidity.png" alt="" class="head-icon"> Humidity
+            </div>
+            <div class="matter">
+                <%=r.currentConditions.humidity %> %
+            </div>
+            <div class="matt">The dew point it <%=r.currentConditions.dew %>&deg; right now % </div>
         </div>
     </main>
-    <footer>
-
-    </footer>
     <script>
         function submitForm() {
             document.getElementById('searchForm').submit();
