@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url("../back.jpg");
+    background-image: url("../icons/back.jpg");
     min-height: 100vh;
     min-width: 100vw;
     background-size: cover;

@@ -14,7 +14,7 @@
         <form action="/main" method="POST" id="searchForm">
             <div class="form-group">
                 <input type="text" class="form-control el" id="city" name="city" placeholder="Enter City">
-                <img src="search.png" alt="" class="iconn" onclick="submitForm()">
+                <img src="icons/search.png" alt="" class="iconn" onclick="submitForm()">
             </div>
         </form>
     </div>
@@ -50,7 +50,7 @@
                         <%= i.datetime.substring(0, 5) %>
                     </div>
                     <div class="elements">
-                        <img src="/<%= i.icon %>.png" alt="none">
+                        <img src="icons/<%= i.icon %>.png" alt="none">
                     </div>
                     <div class="elements">
                         <%= i.temp %>&deg;
@@ -62,7 +62,7 @@
     <main>
         <div class="box1">
             <div class="day head1">
-                <img src="10day.png" class="head-icon" alt="">
+                <img src="icons/10day.png" class="head-icon" alt="">
                 10 days forecast
             </div>
             <% for (i of r.days) { %>
@@ -77,13 +77,13 @@
                         H:<%= i.tempmax %>&deg;
                     </div>
 
-                    <div class="details"><img src="/<%=i.icon%>.png" alt="none"></div>
+                    <div class="details"><img src="icons//<%=i.icon%>.png" alt="none"></div>
                 </div>
                 <% } %>
         </div>
         <div class="box2">
             <div class="head1">
-                <img src="wind.png" alt="" class="head-icon">Wind speed
+                <img src="icons/wind.png" alt="" class="head-icon">Wind speed
             </div>
             <div class="matter">
                 <%=r.currentConditions.windspeed %> KPH
@@ -91,7 +91,7 @@
         </div>
         <div class="box3">
             <div class="head1">
-                <img src="wind.png" alt="" class="head-icon"> Wind gusts
+                <img src="icons/wind.png" alt="" class="head-icon"> Wind gusts
             </div>
             <div class="matter">
                 <%=r.currentConditions.windgust %> KPH
@@ -99,7 +99,7 @@
         </div>
         <div class="box4">
             <div class="head1">
-                <img src="Humidity.png" alt="" class="head-icon"> Humidity
+                <img src="icons/Humidity.png" alt="" class="head-icon"> Humidity
             </div>
             <div class="matter">
                 <%=r.currentConditions.humidity %> %
@@ -108,10 +108,10 @@
         </div>
         <div class="box5">
             <div class="head1">
-                <img src="sunrise.png" alt="" class="head-icon"> Sunrise
+                <img src="icons/sunrise.png" alt="" class="head-icon"> Sunrise
             </div>
             <div class="matter">
-                <img src="sunrise.png" alt="" class="lg-img">
+                <img src="icons/sunrise.png" alt="" class="lg-img">
             </div>
             <div class="matt">
                 <%=r.currentConditions.sunrise.substring(0, 5) %> AM
@@ -119,10 +119,10 @@
         </div>
         <div class="box6">
             <div class="head1">
-                <img src="sunset.png" alt="" class="head-icon"> Sunset
+                <img src="icons/sunset.png" alt="" class="head-icon"> Sunset
             </div>
             <div class="matter">
-                <img src="sunset.png" alt="" class="lg-img">
+                <img src="icons/sunset.png" alt="" class="lg-img">
             </div>
             <div class="matt">
                 <%=r.currentConditions.sunset.substring(0, 5) %> PM
@@ -130,10 +130,10 @@
         </div>
         <div class="box7">
             <div class="head1">
-                <img src="feels_like.png" alt="" class="head-icon"> Feels like
+                <img src="icons/feels_like.png" alt="" class="head-icon"> Feels like
             </div>
             <div class="matter">
-                <img src="feels_like.png" alt="" class="lg-img">
+                <img src="icons/feels_like.png" alt="" class="lg-img">
             </div>
             <div class="matt">
                 <%=r.currentConditions.feelslike %> &deg;
@@ -141,10 +141,10 @@
         </div>
         <div class="box8">
             <div class="head1">
-                <img src="pressure.png" alt="" class="head-icon">Pressure
+                <img src="icons/pressure.png" alt="" class="head-icon">Pressure
             </div>
             <div class="matter">
-                <img src="pressure.png" alt="" class="lg-img">
+                <img src="icons/pressure.png" alt="" class="lg-img">
             </div>
             <div class="matt">
                 <%=r.currentConditions.pressure %> Pa
