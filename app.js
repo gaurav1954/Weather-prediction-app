@@ -6,6 +6,8 @@ const app = express();
 const ejsMate = require('ejs-mate');
 const path = require('path');
 
+require('dotenv').config();
+
 // Set up view engine and static files
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
@@ -50,7 +52,6 @@ function getCurrentDateTimeFormatted() {
 }
 
 // Define route for the homepage
-// Define route for the homepage
 app.get("/", async (req, res) => {
     try {
         // Get the city from the session or use a default value ("Dehradun")
@@ -65,7 +66,7 @@ app.get("/", async (req, res) => {
         const formattedCurrentDate = formatDate(currentDate);
 
         // API Key for VisualCrossing API
-        const key = 'XGGTZ3FYHMN5FDFFFF7CFF5JK';
+        const key = process.env.API_KEY;
 
         // Create the API endpoint for fetching weather data
         let endpoint = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/${formattedCurrentDate}?key=${key}&unitGroup=metric&elements=tempmax,tempmin,temp,sunrise,sunset,conditions,visibility,uvindex,pressure,feelslike,humidity,datetime,icon,windspeed,windgust,dew,description`;
